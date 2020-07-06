@@ -1,0 +1,15 @@
+.main-card {
+  
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+    padding: 4px 0 4px 0;
+    background-color: rgb(228, 228, 228);
+    margin: 10px 0;
+    height: 89px;
+   
+    display: grid;
+    grid-template-columns: repeat(6 , 1fr);
+    
+    justify-items: center;
+}

@@ -1,0 +1,19 @@
+.data-info{
+    display: flex;
+    justify-content: space-around;
+    .content{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+    
+    .information{
+        display: flex;
+        justify-content: space-around;
+    }
+    .data-buttons{
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
+}

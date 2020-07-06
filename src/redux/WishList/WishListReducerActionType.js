@@ -1,0 +1,7 @@
+export const WishListReducerActionType = {
+    ADD_TO_WISHLIST : "ADD_TO_WISHLIST",
+    REMOVE_FROM_WISHLIST : "REMOVE_FROM_WISHLIST",
+    INCREASE_QTY : "INCREASE_QTY",
+    DECREASE_QTY : "DECREASE_QTY"
+}
+

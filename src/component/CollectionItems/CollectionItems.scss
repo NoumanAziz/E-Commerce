@@ -1,0 +1,68 @@
+.collection-item {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    height: 350px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 25px;
+  
+    .image {
+      width: 100%;
+      height: 95%;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 5px;
+    }
+    
+  
+    .collection-footer {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+     
+  
+      .name {
+        width: 90%;
+      
+      }
+  
+      .price {
+        width: 10%;
+      }
+    }
+    .wish-list{
+      position : absolute;
+      top : 50%;
+      display: none;
+ 
+    }
+    .custom-button{
+          position : absolute;
+          top : 64%;
+          display: none;
+    }
+
+    &:hover{
+      .custom-button{
+        display: block;
+        opacity: 0.8;
+      }
+      .wish-list{
+        display: block;
+        opacity: 0.8;
+      
+      }
+      .image{
+        opacity: 0.8;
+      }
+      .collection-footer {
+        background-color: rgb(202, 202, 202);
+      }
+    }
+
+  }
+  

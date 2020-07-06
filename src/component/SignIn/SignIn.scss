@@ -1,0 +1,43 @@
+.signin{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & h2{
+        margin-top: 30px;
+    }
+    & span{
+        font-size: 1.2em;
+    }
+    
+}
+.error{
+    font-size: 14px;
+    color: red;
+    margin: 0 0;
+    padding: 0 0;
+    font-family : 'Amiri', serif;
+    // font-family: calibri;
+    font-weight: 200;
+    font-style: italic;
+}
+
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    margin: 20px 0 0 0;
+    &.signin-button{
+        width: 300px;   
+    }
+   
+}
+google-fb{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: green($color: #000000);
+}

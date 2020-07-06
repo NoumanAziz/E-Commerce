@@ -1,0 +1,27 @@
+.collection-preview {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    .view-link{
+      display: flex;
+    
+      justify-content: space-between;
+      width: 99%;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+    .view-more{
+      margin-right: 12px;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: bolder;
+    }
+  
+    .preview {
+      display: grid;
+      grid-template-columns: repeat(4 ,auto);
+      justify-content: space-between;
+    }
+  }
+  

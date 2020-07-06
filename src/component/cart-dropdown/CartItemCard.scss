@@ -1,0 +1,31 @@
+.card{
+    display: flex;
+   justify-content: space-between;
+    padding: 0;
+    width: 100%;
+    margin-top: 10px;
+    height: 81px;
+    background-color: rgb(210, 219, 224);
+    .content { 
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        padding: 15px 0 0 7px;
+
+      .content-info{
+            display: flex;
+            align-content: space-between;
+            padding: px;
+            p{
+                margin:0 5px 0 0;
+            } 
+        }
+    }
+    .name{
+        
+        margin:0px;
+    }
+    
+}
+
+

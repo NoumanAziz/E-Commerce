@@ -1,0 +1,35 @@
+.header-body{
+    width: 98.3%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-bottom: 15px;
+    height: 70px;
+ 
+.crown-logo{
+        margin-left: 15px;
+        height: 100%;
+        width: 70px;
+        margin-top: 4px;
+        
+}
+
+.links{
+    display: flex;
+    width: 70%;
+    justify-content: flex-end;
+    font-size: 1.2em;
+    font-weight: 600;
+  padding: 0 0;
+  align-items: center; 
+}
+ .option {
+     margin-right: 30px;
+     cursor: pointer;
+
+ }
+ 
+ .sign-in{
+    display: flex;
+}
+}

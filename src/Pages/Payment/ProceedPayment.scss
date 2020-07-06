@@ -1,0 +1,27 @@
+
+
+.proceed-payment{
+ 
+    width: 800px;
+    margin: 40px auto;
+     display: grid;
+    grid-template-columns: repeat(4 , 200px);
+    text-align: center;
+}
+.paymentItems{
+    width: 800px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;;
+     padding: 10px 0 ;
+ }
+
+
+.total-amount{
+    display: flex;
+    
+    width: 800px;
+    margin: auto;
+    justify-content: space-around;
+    font-weight: bolder;
+    font-size: 1.5em;
+}

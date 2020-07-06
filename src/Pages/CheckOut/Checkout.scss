@@ -1,0 +1,29 @@
+.checkout{
+ 
+    width: 900px;
+    margin: 40px auto;
+     display: grid;
+    grid-template-columns: repeat(6 , 150px);
+    text-align: center;
+}
+.cartItems{
+    width: 898px;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;;
+     padding: 10px 0 ;
+ }
+
+.discription {
+  
+    border: 2px solid blue($color: #000000);
+    background-color: blue($color: #000000);
+}
+.total-amount{
+    display: flex;
+    
+    width: 800px;
+    margin: auto;
+    justify-content: space-around;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
