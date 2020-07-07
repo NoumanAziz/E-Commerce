@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
-import SHOP_DATA from '../ShopPage/Shop_Data'
 import { connect } from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import './LandingPage.scss'
 import { selectCartItems } from '../../redux/cartReducer/CartSelector'
 import { AddItems, SelectedItems, increaseQuantity, decreaseQuantity } from '../../redux/cartReducer/CartReducerAction'
+import { selectShopData } from '../../redux/shopDataReducer/shopDataSelector'
+
+
 
  class LandingPage extends Component {
     state = {
-        collection : SHOP_DATA,
         quantity : 1
     }
-    
+      
     render() {
-        const {match , history , location , cartItems , addToCart, incQty ,decQty ,addToSelected } = this.props
-        const reqData=this.state.collection.filter(item => item.title === location.state)[0].items.filter(item => item.id == match.params.id)[0];
+        const {match , history , location , cartItems , addToCart, incQty ,decQty ,addToSelected,collection} = this.props
+        const reqData=collection.filter(item => item.title === location.state)[0].items.filter(item => item.id == match.params.id)[0];
         const {quantity} = this.state
         console.log('required dtata', reqData)
         const {id , name , imageUrl ,  price } = reqData;
@@ -74,7 +75,8 @@ import { AddItems, SelectedItems, increaseQuantity, decreaseQuantity } from '../
 }
 
 const mapStateToProps = createStructuredSelector({
-    cartItems : selectCartItems
+    cartItems : selectCartItems,
+    collection : selectShopData
 })
 const mapDispatchToProps = dispatch =>({
     addToCart : (item,quantity)=>dispatch(AddItems(item,quantity)),

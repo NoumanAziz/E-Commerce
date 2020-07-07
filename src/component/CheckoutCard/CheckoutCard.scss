@@ -13,3 +13,13 @@
     
     justify-items: center;
 }
+.quantity{
+    display: flex;
+    text-align: center;
+}
+.arrow{
+    margin: 0 10px;
+    font-weight: bolder;
+    cursor: pointer;
+    outline: none;
+}

@@ -1,5 +1,6 @@
 export const CartReducerActionType = {
     Cart_TOGGLER : 'CART_TOGGLER',
+    CART_SHOW : 'CART_SHOW',
     CART_HIDE : 'CART_HIDE',
     ADD_ITEMS : 'ADD_ITEMS',
     REMOVE_ITEM : 'REMOVE_ITEM',

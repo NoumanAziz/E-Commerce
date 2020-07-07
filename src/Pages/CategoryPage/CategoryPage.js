@@ -1,26 +1,29 @@
-import React, { Component } from 'react'
-import Shop_Data from '../ShopPage/Shop_Data'
-import CollectionPreview from '../../component/CollectionPreview/CollectionPreview'
+import React from 'react'
+
+import { connect } from 'react-redux'
+import { selectColletion } from '../../redux/shopDataReducer/shopDataSelector'
+import CollectionItems from '../../component/CollectionItems/CollectionItems'
 import './CategoryPage.scss'
 
-export default class CategoryPage extends Component {
-    state = {
-        collection : Shop_Data,
-        itemNumber : 4
-    }
 
-    render() {
-        console.log('shopdata',this.state.collection)
+const CategoryPage = ({data:{title , items}})=> {
+    
         return (
-            <div className = 'shop'>
-                
-                <div>
-                    {this.state.collection.filter((data)=>
-                      data.routeName === this.props.match.params.category)
-                      .map((data)=>
-                    <CollectionPreview key ={data.id} itemNumber ={data.items.length} title={ data.title} items = {data.items} />)}
+            <div className = 'collection-page'>
+                <h1 className = 'title'>{title}</h1>
+                <div className = 'items'>
+                     {
+                         items.map((items)=>
+                         <CollectionItems key = {items.id} items = {items} title={title}/>) 
+                     }
                 </div>
             </div>
         )
     }
-}
+
+const mapStateToProps = (state , ownProps)=>({
+    data : selectColletion(ownProps.match.params.category)(state)
+})
+
+
+export default connect(mapStateToProps)(CategoryPage);

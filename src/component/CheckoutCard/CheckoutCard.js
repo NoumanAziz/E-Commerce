@@ -14,12 +14,12 @@ const CheckoutCard = ({item, removeIcon , selectItem ,unSelectItem ,addQuantity 
             <img src = {`${imageUrl}`} alt='item' width = '70px' height = '80px' />
             <h4 className= 'discription'>{name}</h4>
             <div className = 'quantity'> 
-                <div onClick = {()=>decQuantity(id)} >Rem</div> 
-                    {quantity} 
-                <div onClick = {()=>addQuantity(id)}>Add</div> 
+                <div className = 'arrow' onClick = {()=>decQuantity(id)} >&#10094;  </div> 
+                     { quantity } 
+                <div className = 'arrow' onClick = {()=>addQuantity(id)}>  &#10095;</div> 
             </div>
             <p>{price}$</p>
-            <p onClick = {()=> removeIcon(id)}>Remove</p>
+            <p onClick = {()=> removeIcon(id)}>&#10005;</p>
 
             </div>
     );

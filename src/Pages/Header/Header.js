@@ -30,11 +30,19 @@ const Header = ({currentUser , hidden}) => {
                 <Link to = '/shop'  className='option'>
                     <p>CONTACT</p>
                 </Link>
+          
+                <Link to = '/wishlist' className = 'option'>
+                    <p>WISHLIST</p>
+                </Link>
+               
+                <CartIcon/>
+                {/* <img src = {cart} width = '28px' height = '28px' alt ='cart'  className='option'/> */}
                 {currentUser ? 
                 <div className= 'sign-in'>
-                    <div className='option' onClick={() => auth.signOut()} >Sign Out</div>
-                    <p>{currentUser.displayName}</p>
+                   
+                    <p className = "option">{currentUser.displayName}</p>
                     <img src = {`${currentUser.photoURL}`} width = '28px' height = '28px'  alt = 'profile' />
+                    <div className='option' onClick={() => auth.signOut()} >Sign Out</div>
                 </div>
                 : 
                 <Link to = '/signin'  className='option' >
@@ -42,12 +50,6 @@ const Header = ({currentUser , hidden}) => {
                 </Link>
                  }
 
-                <Link to = '/wishlist' className = 'option'>
-                    <p>WISHLIST</p>
-                </Link>
-               
-                <CartIcon/>
-                {/* <img src = {cart} width = '28px' height = '28px' alt ='cart'  className='option'/> */}
                
             </div>
             {hidden ? null : 

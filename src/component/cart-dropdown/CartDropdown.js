@@ -9,7 +9,7 @@ import { CartHide } from '../../redux/cartReducer/CartReducerAction';
 import { ClickOutsideListener } from 'react-click-outside-listener';
 
 
-const CartDropdown = ({cartItems, history , handleClickOutside}) => {
+const CartDropdown = ({cartItems, history , handleClickOutside ,dispatch}) => {
     const checkOut = ()=>{
         history.push('/checkout')
         handleClickOutside()
@@ -38,6 +38,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch=>({
     handleClickOutside : ()=>dispatch(CartHide())
+    
 })
 
 // const mapStateToProps = ({cart:{cartItems}}) =>({

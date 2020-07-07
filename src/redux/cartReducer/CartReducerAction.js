@@ -6,6 +6,11 @@ export const CartReducerAction = () => (
         type : CartReducerActionType.Cart_TOGGLER 
     }
 )
+export const CartShow = () => (
+    {
+        type : CartReducerActionType.CART_SHOW 
+    }
+)
 
 export const CartHide = () => (
     {
