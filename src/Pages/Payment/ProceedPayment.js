@@ -6,9 +6,11 @@ import { selectSelectedItems } from '../../redux/cartReducer/CartSelector';
 import CustomButton from '../../component/CustomButton/CustomButton'
 import PaymentItems from './PaymentItems';
 import './ProceedPayment.scss'
+import StripePayment from '../../component/StripePayment/StripePayment';
 
 
 const ProceedPayment = ({selectedItems}) => {
+    const totalPrice =   selectedItems.reduce((acc ,item)=> acc+(item.quantity *item.price) ,0);
     return (
             <>
             <div className = 'proceed-payment'>
@@ -24,13 +26,14 @@ const ProceedPayment = ({selectedItems}) => {
             
             </div>
             <div className= 'total-amount'>
-                <div>Total : {
-                selectedItems.reduce((acc ,item)=> acc+(item.quantity *item.price) ,0)
-                } 
+                <div>Total : {totalPrice} 
                 $</div>
-                <CustomButton >Stripe Payment</CustomButton>
+                <StripePayment totalPrice = {totalPrice}/>
             </div> 
-    
+            <div className = 'testing'>
+                <p>* Please Use Following test credit card for payments*</p> 
+                <span>4242 4242 4242 4242 -- Exp:01/20 -- Cw:123</span> 
+            </div>
     
             </>
     );

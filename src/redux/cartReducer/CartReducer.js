@@ -37,6 +37,12 @@ const CartReducer = (state = ISTATE , action) => {
                     ...state ,
                     cartItems : state.cartItems.filter(item=> item.id !== action.payload)
             }
+
+            case CartReducerActionType.PAYMENT_SUCCESS:
+                return{
+                    ...state ,
+                    cartItems : state.cartItems.filter(item=> !state.selectedItems.includes(item))
+            }
                 
             case CartReducerActionType.SELECTED_ITEMS:
                 return{

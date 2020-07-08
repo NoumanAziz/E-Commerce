@@ -32,6 +32,11 @@ export const RemoveItem = (id)=>(
         payload : id
     }
 )
+export const paymentSuccess = ()=>(
+    {
+        type : CartReducerActionType.PAYMENT_SUCCESS
+    }
+)
 
 export const SelectedItems = (selecteditems)=>(
     {

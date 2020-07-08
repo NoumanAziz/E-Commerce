@@ -38,7 +38,7 @@ const WishlistCard = ({item , cartItems ,remove, increaseQty , decreaseQty, decW
             <div onClick = {()=>history.push('/checkout')}>Go to cart</div> :
             <div onClick = {()=> addToCart(item , item.quantity)}>Add to Cart</div>
             }
-            <div onClick = {()=>payment(item)}>BuyNow</div>
+            <div onClick = {()=>payment([item])}>BuyNow</div>
             <div onClick = {()=> remove(id)}>Remove</div>
            
             </div>
