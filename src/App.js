@@ -6,14 +6,16 @@ import './App.scss';
 import ShopPage from './Pages/ShopPage/ShopPage';
 import SignInSignUp from './Pages/SignInSignUp/SignInSignUp';
 import { connect } from 'react-redux'
-import { auth, createUserProfile} from '../src/firebase/firebaseUtil';
+import { auth, createUserProfile, createCollectionsAndDocuments} from '../src/firebase/firebaseUtil';
 import { setCurrentUser } from './redux/user/userAction';
 import { selectCurrentUser } from './redux/user/UserSelector';
 import Checkout from './Pages/CheckOut/Checkout';
 import ProceedPayment from './Pages/Payment/ProceedPayment';
-import CategoryPage from './Pages/CategoryPage/CategoryPage'
 import WishList from './Pages/WishListPage/WishList';
-import LandingPage from './Pages/ProductLandingPage/LandingPage';
+import SnackbarComponent from './component/Snackbar/Snackbar'
+
+
+
 
 
 
@@ -40,6 +42,7 @@ componentDidMount (){
   }
 
   })
+// createCollectionsAndDocuments('collections', this.props.collectionData);
 
 }
 
@@ -51,12 +54,10 @@ this.unsubscribeFromAuth();
     
     return (
       <div className="body-text">
-        <Header />
+        <Header  />
         <Switch>
         <Route exact path="/" component={Home}/> 
-        <Route exact path="/shop" component={ShopPage}/>
-        <Route exact path="/product/:id" component={LandingPage}/>
-        <Route exact path="/shop/:category" component={CategoryPage}/>
+        <Route  path="/shop" component={ShopPage}/>
         <Route exact path="/procedpayment" component={ProceedPayment}/>
         <Route exact path="/checkout" component={Checkout}/>
         <Route exact path="/wishlist" component={WishList}/>
@@ -69,16 +70,20 @@ this.unsubscribeFromAuth();
           } 
         />
         </Switch>
+       <SnackbarComponent/>
       </div>
     );
   }
 }
 const mapStateToProps = state =>({
-  currentUser :  selectCurrentUser(state)
+  currentUser :  selectCurrentUser(state),
+  // snackbarMessage : selectSnackbarShow(state)
+  // collectionData : selectShopData(state)
 })
 
 const mapDispatchToProps = dispatch=>({
-  setCurrentUser : user=>dispatch(setCurrentUser(user))
+  setCurrentUser : user=>dispatch(setCurrentUser(user)),
+  // setSnackbar : ()=>dispatch(hideSnackbar())
 })
 
 export default connect(mapStateToProps , mapDispatchToProps)(App);

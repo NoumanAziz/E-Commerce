@@ -7,6 +7,9 @@ import App from './App';
 import './index.css';
 import { store, persistor } from './redux/store';
 import {PersistGate} from 'redux-persist/integration/react'
+import 'semantic-ui-css/semantic.min.css'
+
+
 
 ReactDOM.render(
   <Provider store = {store}>

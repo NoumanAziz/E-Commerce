@@ -1,25 +1,53 @@
-import React from 'react'
+import React , {Component} from 'react'
 import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-import CollectionPreview from '../../component/CollectionPreview/CollectionPreview'
 import './ShopPage.scss'
-import { selectShopData } from '../../redux/shopDataReducer/shopDataSelector'
+import { fetchingDataAsync } from '../../redux/shopDataReducer/shopDataReducerAction'
+import CollectionOverview from '../../component/CollectionOverview/CollectionOverview'
+import {Route} from 'react-router-dom'
+import CategoryPage from '../CategoryPage/CategoryPage'
+import LandingPage from '../ProductLandingPage/LandingPage'
+import Spinner from '../../component/spinner/spinner'
+import { createStructuredSelector } from 'reselect'
+import { selectIsFetching, selectIsCollectionLoaded } from '../../redux/shopDataReducer/shopDataSelector'
 
-const ShopPage = ({shopData})=> {
+const CollectionOverviewSpinner  = Spinner(CollectionOverview);
+const CategoryPageSpinner = Spinner(CategoryPage);
+const LandingPageSpinner = Spinner(LandingPage);
 
-        const itemNumber = 4
+ class ShopPage extends Component {
+
+
+    unsubscribeFromSnapshot = null;
+    
+    componentDidMount() {
+        this.props.dispatch(fetchingDataAsync())
+    }
+
+    render() {
+      const {match , loading ,  isCollectionLoaded } = this.props;
+      console.log('loading ' , loading)
+      console.log('is collection loaded ' , isCollectionLoaded)
         return (
             <div className = 'shop'>
-                <div>
-                    {shopData.map(({id , ...Props})=>
-                    <CollectionPreview key ={id} itemNumber ={itemNumber} {...Props} />)}
-                </div>
+                <Route exact path={`${match.path}`} render = { 
+                    ()=> <CollectionOverviewSpinner isLoading = {loading}/>}
+                /> 
+                <Route exact path={`${match.path}/:category`} render = {
+                    (props)=> <CategoryPageSpinner isLoading = {!isCollectionLoaded} {...props}/>}
+                />
+                <Route exact path={`${match.path}/product/:id`} render = {
+                    (props)=> <LandingPageSpinner isLoading = {!isCollectionLoaded} {...props}/>}
+                />
             </div>
         )
     }
+}
+
 
 const mapStateToProps = createStructuredSelector({
-    shopData : selectShopData
+    loading : selectIsFetching,
+    isCollectionLoaded : selectIsCollectionLoaded
 })
+
 
 export default connect(mapStateToProps)(ShopPage);

@@ -5,20 +5,22 @@
     display: flex;
     flex-direction: column;
     padding: 5px;
-    border: 1px solid black;
-    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(214, 211, 211, 0.589);
+    background-color: rgb(235, 231, 231);
     justify-content: center;
     align-items: center;
-    top: 90px;
-    right: 50px;
+    top: 55px;
+    right: 33px;
     z-index: 100;
+    border-radius: 7px;
+    box-shadow: grey;
   
     .cart-items {
-      height: 285px;
-      width: 99%;
+      height: 295px;
+      width: 95%;
       display: flex;
       flex-direction: column;
-    
+      
       overflow-y: scroll;
     }
     .cart-message{
@@ -30,7 +32,7 @@
       
     }
     button {
-      margin: 10px 0 5px 0;
+      margin: 7px 0 3px 0;
     }
   }
   

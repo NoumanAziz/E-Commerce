@@ -21,33 +21,30 @@ export const firestore = firebase.firestore();
 
 //for service providers exported in signin form 
 
-// const provider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({
-//     'prompt': 'select_account'
-// })
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({
+    'prompt': 'select_account'
+})
 
 
-// export const googleSignin  = () => {
-//         const provider = new firebase.auth.GoogleAuthProvider();
-//         provider.setCustomParameters({  
-//         'prompt': 'select_account'
-//         })
-//         auth.signInWithPopup(provider)};
+export const googleSignin  = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.setCustomParameters({  
+        'prompt': 'select_account'
+        })
+        auth.signInWithPopup(provider)};
 
 
-// export const facebookSignin = () =>{
-//         const provider = new firebase.auth.FacebookAuthProvider();
-//         provider.setCustomParameters({
-//             'display': 'popup'
-//             // 'prompt':'select_account'
-//         })
-//         auth.signInWithPopup(provider)
+export const facebookSignin = () =>{
+        const provider = new firebase.auth.FacebookAuthProvider();
+        provider.setCustomParameters({
+            'display': 'popup'
+            // 'prompt':'select_account'
+        })
+        auth.signInWithPopup(provider)
 
-// }
-// const provider = new firebase.auth.FacebookAuthProvider();
-// provider.setCustomParameters({
-//     'dispaly': 'popup'
-// })
+}
+
 
 // export const facebookSignin = () => auth.signInWithPopup(provider)
 
@@ -92,7 +89,43 @@ export const uiConfig = {
     }
   return userRef;
   }
+
+// get data from firestore 
+
+export const convertCollectionSnapshotToMap = (snapShot)=>{
+  const transformedCollection = snapShot.docs.map(doc => {
+    const{ title , items} = doc.data();
+    return {
+      id : doc.id,
+      routeName : encodeURI(title.toLowerCase()),
+      title,
+      items
+    }
+  });
+  console.log('new transformed data ', transformedCollection)
+
+  return transformedCollection.reduce((acc , item)=> {
+      acc[item.title.toLowerCase()] = item;
+      return acc;
+    } ,{});
+  }
+
+
+
   
-  
+  export const createCollectionsAndDocuments = async (collectionKey , objectToAdd) =>{
+     const collectionRef = firestore.collection(collectionKey);
+
+     const batch = firestore.batch();
+
+     objectToAdd.forEach(async({title ,items}) => {
+       const  newDocRef = collectionRef.doc();
+
+      await batch.set (newDocRef , ({title , items}))
+      
+     });
+     return  await batch.commit()
+  }
+
 
 export default firebase;

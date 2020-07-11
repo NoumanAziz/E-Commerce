@@ -3,9 +3,10 @@ import { connect } from 'react-redux'
 
 import './CartItemCard.scss';
 import { RemoveItem} from '../../redux/cartReducer/CartReducerAction';
+import { showSnackbar } from '../../redux/SnackBarReducer/SnackBarReducerAction';
 
 
-const CartItemCard = ({item  ,dispatch }) => {
+const CartItemCard = ({item  ,removeItem,showSnackbar }) => {
     const {id, name, imageUrl, price , quantity} = item
 
   
@@ -20,11 +21,14 @@ const CartItemCard = ({item  ,dispatch }) => {
                     <p> = {price * quantity}$</p>
                 </div>
             </div>
-            <button onClick={()=>dispatch(RemoveItem(id))}>X</button>
+            <p onClick={()=>{removeItem(id); showSnackbar('remCart')}}>&#10005;</p>
         </div>
     );
 };
 
+const mapDispatchToProps = dispatch=>({
+ removeItem : id=>dispatch(RemoveItem(id)),
+ showSnackbar : msg=>dispatch(showSnackbar(msg))
+})
 
-
-export default connect(null)(CartItemCard);
+export default connect(null , mapDispatchToProps)(CartItemCard);

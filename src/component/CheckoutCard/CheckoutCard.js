@@ -4,7 +4,7 @@ import './CheckoutCard.scss'
 
 
 
-const CheckoutCard = ({item, removeIcon , selectItem ,unSelectItem ,addQuantity , decQuantity }) => {
+const CheckoutCard = ({item, removeIcon , selectItem ,unSelectItem ,addQuantity , decQuantity,showSnackbar }) => {
     const {id ,name, imageUrl, price , quantity} = item;
     return (
         <div className = 'main-card'>
@@ -12,14 +12,14 @@ const CheckoutCard = ({item, removeIcon , selectItem ,unSelectItem ,addQuantity 
             e.target.checked ? selectItem(item): 
                               unSelectItem(id)} /> 
             <img src = {`${imageUrl}`} alt='item' width = '70px' height = '80px' />
-            <h4 className= 'discription'>{name}</h4>
+            <h3 className= 'discription'>{name}</h3>
             <div className = 'quantity'> 
                 <div className = 'arrow' onClick = {()=>decQuantity(id)} >&#10094;  </div> 
                      { quantity } 
                 <div className = 'arrow' onClick = {()=>addQuantity(id)}>  &#10095;</div> 
             </div>
-            <p>{price}$</p>
-            <p onClick = {()=> removeIcon(id)}>&#10005;</p>
+            <h5>{price}$</h5>
+            <p onClick = {()=>{ removeIcon(id); showSnackbar('remCart')}}>&#10005;</p>
 
             </div>
     );

@@ -1,29 +1,77 @@
-.checkout{
+.check-body{
  
-    width: 900px;
-    margin: 40px auto;
-     display: grid;
-    grid-template-columns: repeat(6 , 150px);
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(201, 201, 201);
+    box-shadow: rgb(161, 161, 161) 2px 3px 3px 3px;
+    padding: 20px;
+    border-radius: 8px;
+    color: rgb(59, 58, 58);
+  
+    .proceed-to-payment{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+       
+    
+       
+
+    }
+
+    .cart-title{
+        background-color: rgb(218, 217, 217);
+        box-shadow: rgb(161, 161, 161) 2px 2px 2px 2px;
+        border-radius: 3px;
+        width: fit-content;
+        padding : 7px 15px;
+        margin: 10px 0px 14px 0px;
+        & h3{
+            font-weight: bolder;
+        font-size: 1.7em;
+        }
+    }
+    .cart-title-icon{
+      margin-left: 6px;
+        
+    }
+
+.check-header{
+    display: grid;
+    grid-template-columns: repeat(6 , 1fr);
     text-align: center;
+    margin: 10px 0px;
+    background-color: rgb(228, 228, 228);
+    padding: 6px 2px;
+    border-radius: 4px;
+    box-shadow: rgb(161, 161, 161) 1px 1px 2px 2px;
+    & h4{
+        margin: 0;
+        padding: 0;
+    }
+}
 }
 .cartItems{
-    width: 898px;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;;
+
+    border-top: 2px solid rgb(71, 71, 71);
+    border-bottom: 2px solid rgb(78, 78, 78);;
      padding: 10px 0 ;
  }
+
 
 .discription {
   
     border: 2px solid blue($color: #000000);
     background-color: blue($color: #000000);
 }
-.total-amount{
-    display: flex;
+.amount-total{
     
-    width: 800px;
-    margin: auto;
-    justify-content: space-around;
+    padding: 10px 42px;
+    margin: 0;
+    
     font-weight: bolder;
     font-size: 1.5em;
+    text-align: right;
 }
+

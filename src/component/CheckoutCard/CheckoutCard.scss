@@ -5,13 +5,21 @@
    align-items: center;
     padding: 4px 0 4px 0;
     background-color: rgb(228, 228, 228);
+    box-shadow: rgb(161, 161, 161) 2px 2px 2px 2px;
     margin: 10px 0;
     height: 89px;
-   
     display: grid;
     grid-template-columns: repeat(6 , 1fr);
-    
+    border-radius: 4px;
     justify-items: center;
+    font-weight: bolder;
+    & p,input{
+        cursor: pointer;
+    }
+    & h5{
+        padding: 0;
+        margin: 0;
+    }
 }
 .quantity{
     display: flex;

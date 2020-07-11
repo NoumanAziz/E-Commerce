@@ -5,11 +5,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+   
     margin: 0 7.5px 15px;
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    border-radius: 6px;
+    box-shadow: grey 1px 1px 2px 2px ;
 
     &.large{
         height:380px;

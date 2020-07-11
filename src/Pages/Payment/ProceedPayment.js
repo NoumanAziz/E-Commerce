@@ -30,10 +30,7 @@ const ProceedPayment = ({selectedItems}) => {
                 $</div>
                 <StripePayment totalPrice = {totalPrice}/>
             </div> 
-            <div className = 'testing'>
-                <p>* Please Use Following test credit card for payments*</p> 
-                <span>4242 4242 4242 4242 -- Exp:01/20 -- Cw:123</span> 
-            </div>
+        
     
             </>
     );

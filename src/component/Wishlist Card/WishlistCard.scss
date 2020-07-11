@@ -1,9 +1,62 @@
 .wishlist-card{
-    width: 80%;
+    width: 84%;
     display: flex;
     margin: 20px 10px;
     justify-content: space-between;
+    background-color: rgb(238, 238, 238);
+    border-radius: 7px;
+    overflow: hidden;
+    margin: 10px auto;
+    align-items: center;
+    box-shadow: rgb(170, 170, 170) 1px 1px 3px 3px;
+
+  
+   
     .content{
-        width: 45%;
+        width: 40%;
+        margin: 10px 0px 10px 0px;
+      
+        & p{
+            font-weight: bolder;
+            font-size: 1.2em;
+        }
+        & .quantity{
+            font-weight: bolder;
+            font-size: 1.2em;
+            
+            width: 110px;
+            display: flex;
+            justify-content: space-between;
+        }
     }
+    .wishlist-buttons{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+       align-items: flex-end;
+        justify-content: space-between;
+        height: 90px;
+        margin: 15px 5px 0 0;
+    }
+    .cart-buynow{
+        display: flex;
+       
+        justify-content: space-between;
+        width: 270px;
+    }
+    .extra-div{
+    .buttons-task{
+        background-color: rgb(192, 192, 192);
+                color: black;
+                font-weight: bolder;
+                box-shadow: rgb(133, 132, 132) 1px 1px 1px 1px;
+               
+                &:hover{
+                    background-color: rgba(87, 86, 86, 0.849);
+                    color: white;
+                    // box-shadow: rgb(87, 86, 86) 2px 2px 3px 3px;
+                }
+            }
+        }
 }
+

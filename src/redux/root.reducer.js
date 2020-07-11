@@ -6,11 +6,13 @@ import WishListReducer from './WishList/WishListReducer';
 import storage from 'redux-persist/lib/storage'
 import directoryReducer from './directoryReducer/directoryReducer';
 import shopDataReducer from './shopDataReducer/shopDataReducer';
+import snackbarReducer from './SnackBarReducer/SnackBarReducer';
 
 const persistConfig = {
     key : 'root',
     storage,
-    whitelist : ['cart' , 'wishList' ,'directory','shop']
+    whitelist : ['cart' , 'wishList' ,'directory','shop','snackbar']
+
 }
 
 const rootReducer =  combineReducers({
@@ -18,7 +20,9 @@ const rootReducer =  combineReducers({
     cart : CartReducer,
     wishList : WishListReducer,
     directory : directoryReducer,
-    shop : shopDataReducer
+    shop : shopDataReducer,
+    snackbar : snackbarReducer
+
 });
 
 export default  persistReducer(persistConfig, rootReducer);

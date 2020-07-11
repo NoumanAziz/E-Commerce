@@ -9,12 +9,22 @@ export const selectCollectionData = createSelector(
 
 export const selectShopData = createSelector(
     [selectCollectionData],
-    collection=>Object.values(collection)
+    collection=>collection ? Object.values(collection):[]
 )
  
 export const selectColletion = paramUrl=>(
     createSelector(
         [selectCollectionData],
-        (collection=>collection[paramUrl])
+        collection=>(collection?collection[paramUrl]: null)
     )
+)
+
+export const selectIsFetching = createSelector(
+    [selectShop],
+    (shop=> shop.isFetching)
+)
+
+export const selectIsCollectionLoaded = createSelector(
+    [selectShop],
+    shop => !!shop.collection
 )

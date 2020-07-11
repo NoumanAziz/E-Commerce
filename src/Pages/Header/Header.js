@@ -2,18 +2,20 @@ import React from 'react';
 import './Header.scss';
 import crown from './crown.svg';
 import { auth } from '../../../src/firebase/firebaseUtil';
-import { Link } from 'react-router-dom';
+import { Link , withRouter} from 'react-router-dom';
 import {connect} from 'react-redux'
 import CartIcon from '../../component/CartIcon/CartIcon';
 import CartDropdown from '../../component/cart-dropdown/CartDropdown';
 import {createStructuredSelector} from 'reselect'
 import { selectCurrentUser } from '../../redux/user/UserSelector';
 import { selectHidden } from '../../redux/cartReducer/CartSelector';
+import { Icon  , Dropdown , Button} from 'semantic-ui-react'
+import CustomButton from '../../component/CustomButton/CustomButton';
 
 
 
-const Header = ({currentUser , hidden}) => {
-    console.log('header object', currentUser)
+const Header = ({currentUser , hidden ,history }) => {
+    console.log('header object', history)
     return (
         
         <div className = 'header-body'>
@@ -25,36 +27,55 @@ const Header = ({currentUser , hidden}) => {
           
             <div className = 'links'>
                 <Link to = '/shop'  className='option'   >
-                    <p>SHOP</p>
+                    <p><Icon name = 'medrt' />Shop</p>
                 </Link>
-                <Link to = '/shop'  className='option'>
-                    <p>CONTACT</p>
-                </Link>
-          
-                <Link to = '/wishlist' className = 'option'>
-                    <p>WISHLIST</p>
-                </Link>
-               
                 <CartIcon/>
-                {/* <img src = {cart} width = '28px' height = '28px' alt ='cart'  className='option'/> */}
-                {currentUser ? 
-                <div className= 'sign-in'>
-                   
-                    <p className = "option">{currentUser.displayName}</p>
-                    <img src = {`${currentUser.photoURL}`} width = '28px' height = '28px'  alt = 'profile' />
-                    <div className='option' onClick={() => auth.signOut()} >Sign Out</div>
-                </div>
-                : 
-                <Link to = '/signin'  className='option' >
-                <p>SIGN IN</p>
-                </Link>
-                 }
+               
+                <div className = 'display-name-image'>
+                {currentUser ? <div className = 'display-image'>
+                    <img src = {`${currentUser.photoURL}`} width = '27px' height = '27px'  alt = 'profile' /></div>
+                : null }
+                <Dropdown
+                        simple item
+                        
+                            text= { currentUser ?`${currentUser.displayName}`  :"Account"}
+                            icon=  {currentUser ? '' :"user"}
+                        direction="left"
+                        labeled
+                        button
+                        className= {currentUser ? 'custom-style' :"icon"}
+                        
+                    >
+                    <Dropdown.Menu > 
+                        <Dropdown.Header content="Welcome to Crown Shop" />
+                        {
+                            currentUser ? 
+                            null
+                            : 
+                            <Dropdown.Item > 
+                            <Button compact color = 'grey' onClick ={()=>history.push('/signin')}>Login</Button>
+                            <Button compact color = 'grey' onClick ={()=>history.push('/signin')}>Signup</Button>
+                            </Dropdown.Item>
+                        }
+                        <Dropdown.Item onClick ={()=>history.push('/wishlist')}><Icon name = 'heart outline' />Wishlist</Dropdown.Item>
+                        <Dropdown.Item onClick ={()=>history.push('/checkout')}><Icon name = 'cart' />Cart</Dropdown.Item>
+                       {
+                            currentUser?
+                            <>
+                            <Dropdown.Item ><Icon name = 'nintendo switch'/>Switch Account</Dropdown.Item>
+                            <Dropdown.Item  onClick={() => auth.signOut()}  ><Icon name = 'sign-out' flipped = 'horizontally'/>Logout</Dropdown.Item>
+                            </>
+                            : null
+                        }
+                </Dropdown.Menu>
+            </Dropdown>
 
                
-            </div>
-            {hidden ? null : 
+                </div>
+          
+                </div>
+                {hidden ? null : 
             <CartDropdown/>}
-         
         </div>
     
         
@@ -67,7 +88,7 @@ const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser,
     hidden: selectHidden
 })
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
 
 
 
@@ -84,3 +105,32 @@ export default connect(mapStateToProps)(Header);
     //     currentUser ,
     //     hidden
     // })
+
+
+
+
+
+
+    // <Link to = '/wishlist' className = 'option'>
+    //                 <p><Icon name = 'heart outline' />Wishlist</p>
+    //             </Link>
+               
+    //             <CartIcon/>
+            
+    //             {currentUser ? 
+    //             <div className= 'sign-in'>
+                   
+    //                 <p className = "option">{currentUser.displayName}</p>
+    //                 <img src = {`${currentUser.photoURL}`} width = '28px' height = '28px'  alt = 'profile' />
+    //                 <div className='option' onClick={() => auth.signOut()} >Logout</div>
+    //             </div>
+    //             : 
+    //             <Link to = '/signin'  className='option' >
+    //             <p>Account</p>
+    //             </Link>
+    //              }
+
+               
+    //         </div>
+
+         

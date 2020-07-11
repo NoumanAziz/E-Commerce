@@ -3,7 +3,7 @@ import FormInput from '../../component/FormInput/FormInput';
 import CustomButton from '../../component/CustomButton/CustomButton';
 import { googleSignin} from '../../../src/firebase/firebaseUtil';
 import { facebookSignin } from '../../../src/firebase/firebaseUtil';
-
+import { Button } from 'semantic-ui-react'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import {auth , uiConfig} from '../../../src/firebase/firebaseUtil'
 
@@ -130,10 +130,12 @@ formValidate = (name)=>{
                                             {' '}Google{' '} 
                             </CustomButton> */}
 
-                            <StyledFirebaseAuth
-            uiConfig={uiConfig}
-            firebaseAuth={auth}/>
+                        <Button circular color='google plus' icon='google plus' onClick = {googleSignin} size='large' type = 'button'/> 
 
+                            {/* <StyledFirebaseAuth
+            uiConfig={uiConfig}
+            firebaseAuth={auth}/> */}
+                        <Button circular color='facebook' icon='facebook' onClick = {facebookSignin} size='large' type = 'button'/>
 
                             {/* <CustomButton type= 'button' onClick = {facebookSignin} isGoogleSignin = 'true' >
                                             {' '}facebook{' '} 

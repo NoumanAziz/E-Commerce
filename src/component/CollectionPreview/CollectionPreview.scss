@@ -1,27 +1,46 @@
 .collection-preview {
     display: flex;
     flex-direction: column;
-    margin-bottom: 30px;
+    margin: 20px 0;
+   background-color: rgba(218, 218, 218, 0.849);
+   border-radius: 8px;
+   padding: 10px 0px 0px 0;
+   
+   box-shadow: rgb(194, 194, 194) 0px 0px 3px 3px;
+  
+   justify-content: space-between;
     .view-link{
       display: flex;
     
       justify-content: space-between;
       width: 99%;
       align-items: center;
-      margin-bottom: 25px;
+      margin: 20px 20px;
+     
     }
     .view-more{
       margin-right: 12px;
+      padding-right: 20px;
+      font-size: 1.2em;
+      color: rgb(61, 61, 61);
+      cursor: pointer;
+      &:hover{
+        color: black;
+        font-size: 1.3em;
+      }
     }
     .title {
       font-size: 28px;
       font-weight: bolder;
+      margin-left: 24px;
     }
   
     .preview {
       display: grid;
       grid-template-columns: repeat(4 ,auto);
-      justify-content: space-between;
+      justify-content: flex-start;
+      padding-left: 40px;
+      overflow-x: scroll;
     }
   }
   

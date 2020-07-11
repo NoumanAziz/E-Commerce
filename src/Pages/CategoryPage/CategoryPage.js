@@ -6,17 +6,23 @@ import CollectionItems from '../../component/CollectionItems/CollectionItems'
 import './CategoryPage.scss'
 
 
-const CategoryPage = ({data:{title , items}})=> {
-    
+const CategoryPage = ({data})=> {
+    const {title , items} = data
         return (
             <div className = 'collection-page'>
-                <h1 className = 'title'>{title}</h1>
+             {
+                 data ? 
+                 <>
+                    <h1 className = 'title'>{title}</h1>
                 <div className = 'items'>
                      {
                          items.map((items)=>
                          <CollectionItems key = {items.id} items = {items} title={title}/>) 
                      }
                 </div>
+                 </>
+                 :null
+             }
             </div>
         )
     }
