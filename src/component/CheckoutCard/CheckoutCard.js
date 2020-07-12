@@ -5,12 +5,15 @@ import './CheckoutCard.scss'
 
 
 const CheckoutCard = ({item, removeIcon , selectItem ,unSelectItem ,addQuantity , decQuantity,showSnackbar }) => {
-    const {id ,name, imageUrl, price , quantity} = item;
+    const {id ,name, imageUrl, price , quantity , isChecked} = item;
     return (
         <div className = 'main-card'>
-           <input type = 'checkbox' onChange = {(e)=>
+           <input type = 'checkbox' 
+            checked={isChecked}
+           onClick = {(e)=>
             e.target.checked ? selectItem(item): 
-                              unSelectItem(id)} /> 
+                              unSelectItem(id)} 
+                             /> 
             <img src = {`${imageUrl}`} alt='item' width = '70px' height = '80px' />
             <h3 className= 'discription'>{name}</h3>
             <div className = 'quantity'> 

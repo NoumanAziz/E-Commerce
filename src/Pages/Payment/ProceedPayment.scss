@@ -1,34 +1,55 @@
+.proceed-payment-header{
+font-size: 1.4em;
+font-weight: 700;
+color: rgb(95, 95, 95);
 
+width: 100%;
+background-color: rgb(253, 251, 251);
+box-shadow: rgb(218, 218, 218) 1px 1px 1px 1px;
+border-radius: 2px ;
+}
 
 .proceed-payment{
  
-    width: 800px;
-    margin: 40px auto;
+    width: 100%;
+    margin: 10px auto;
      display: grid;
-    grid-template-columns: repeat(4 , 200px);
+    grid-template-columns: repeat(4 ,25%);
     text-align: center;
+    padding: 0;
+
+    & h4{
+        margin: 0;
+        padding : 0;
+        color: rgb(105, 105, 105);
+    }
 }
+
 .paymentItems{
-    width: 800px;
-    border-top: 2px solid black;
-    border-bottom: 2px solid black;;
-     padding: 10px 0 ;
+
+    border-top: 1px solid rgba(134, 134, 134, 0.61);
+    border-bottom: 1px solid rgb(197, 194, 194);;
+     padding: 0px 0 ;
+     color: rgb(100, 98, 98);
+     max-height: 63vh;
+     overflow-y: scroll;
+ 
  }
 
 
+
 .total-amount{
+
+    color: rgb(88, 88, 88);
     display: flex;
-    
-    width: 800px;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
     margin: auto;
     justify-content: space-around;
-    font-weight: bolder;
-    font-size: 1.5em;
-}
-.testing{
-    color: red;
-    text-align: center;
-    margin : 100px auto ;
-    font-size: 1.2em;
-    font-weight: 600;
+ 
+    & h2{
+        font-size: 1.3em;
+        font-weight: 600;
+    }
 }

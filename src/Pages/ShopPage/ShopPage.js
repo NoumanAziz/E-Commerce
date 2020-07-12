@@ -30,7 +30,7 @@ const LandingPageSpinner = Spinner(LandingPage);
         return (
             <div className = 'shop'>
                 <Route exact path={`${match.path}`} render = { 
-                    ()=> <CollectionOverviewSpinner isLoading = {loading}/>}
+                    ()=> <CollectionOverview isLoading = {loading}/>}
                 /> 
                 <Route exact path={`${match.path}/:category`} render = {
                     (props)=> <CategoryPageSpinner isLoading = {!isCollectionLoaded} {...props}/>}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import './Header.scss';
 import crown from './crown.svg';
 import { auth } from '../../../src/firebase/firebaseUtil';
@@ -11,11 +11,14 @@ import { selectCurrentUser } from '../../redux/user/UserSelector';
 import { selectHidden } from '../../redux/cartReducer/CartSelector';
 import { Icon  , Dropdown , Button} from 'semantic-ui-react'
 import CustomButton from '../../component/CustomButton/CustomButton';
+import SignIn from '../../component/SignIn/SignIn';
 
 
 
 const Header = ({currentUser , hidden ,history }) => {
-    console.log('header object', history)
+   const [signin , setSignin] = useState(false);
+ 
+
     return (
         
         <div className = 'header-body'>
@@ -53,7 +56,7 @@ const Header = ({currentUser , hidden ,history }) => {
                             null
                             : 
                             <Dropdown.Item > 
-                            <Button compact color = 'grey' onClick ={()=>history.push('/signin')}>Login</Button>
+                            <Button compact color = 'grey' onClick ={()=>setSignin(true)}>Login</Button>
                             <Button compact color = 'grey' onClick ={()=>history.push('/signin')}>Signup</Button>
                             </Dropdown.Item>
                         }
@@ -74,6 +77,8 @@ const Header = ({currentUser , hidden ,history }) => {
                 </div>
           
                 </div>
+                        {signin? <SignIn onClose = {()=>setSignin(false)}/> : null}
+
                 {hidden ? null : 
             <CartDropdown/>}
         </div>

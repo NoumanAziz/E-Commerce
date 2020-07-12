@@ -1,34 +1,43 @@
 .wishlist{
     
-   margin: 0 auto ;
+   margin: 50px auto ;
     border-radius: 7px;
     width: 77%;
     padding: 20px 10px;
     background-color: rgb(201, 201, 201);
     box-shadow: rgb(161, 161, 161) 2px 3px;
+    .wishlist-title{
+        width: 82%;
+        margin: 10px auto 20px auto;
+        display: flex;
+        justify-content: flex-start;
     
     h2{
         background-color: rgb(226, 226, 226);
         width: fit-content;
         padding: 5px 11px;
-        margin: 25px 25px 25px 70px;
+        
         border-radius: 4px;
         color: rgb(75, 74, 74);
         box-shadow: rgb(161, 161, 161) 2px 2px 2px 2px;
     }
+}
     .wishlist-items{
         margin: 10px 10px 20px 10px
     }
     
     .created-div{
-
+        width: 85%;
+        margin: auto;
+        display: flex;
+        justify-content: flex-end;
+        
     .wishlist-buttons{
-        position: relative;
-        left: 84%;
+     
         background-color: rgb(165, 165, 165);
                 color: black;
                 font-weight: bolder;
-                box-shadow: rgb(100, 100, 100) 1px 1px 2px 2px;
+                box-shadow: rgb(100, 100, 100) 1px 1px 1px 1px;
                 margin-right: 8px;
                 &:hover{
                     background-color: rgba(49, 49, 49, 0.849);

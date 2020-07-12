@@ -67,6 +67,36 @@ const CartReducer = (state = ISTATE , action) => {
                         {...item , quantity : item.quantity > 1 ? item.quantity -1 : item.quantity } 
                         : item )
             }
+
+            case CartReducerActionType.CHECK_ALL:
+                return{
+                    ...state ,
+                    cartItems : state.cartItems.map(
+                        item => ({...item , isChecked : true }) )
+                       }
+            case CartReducerActionType.UNCHECK_ALL:
+                return{
+                    ...state ,
+                    cartItems : state.cartItems.map(
+                        item => ({...item , isChecked : false }) )
+                       }    
+            case CartReducerActionType.CHECK_ITEM:
+                return{
+                    ...state ,
+                    cartItems : state.cartItems.map(
+                        item => item.id === action.payload ? 
+                        {...item , isChecked : true } 
+                        : item )
+            }
+
+            case CartReducerActionType.UNCHECK_ITEM:
+                return{
+                    ...state ,
+                    cartItems : state.cartItems.map(
+                        item => item.id === action.payload ? 
+                        {...item , isChecked : false } 
+                        : item )
+            }
                 
         default:
             return state;

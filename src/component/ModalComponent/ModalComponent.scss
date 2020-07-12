@@ -1,0 +1,44 @@
+.main-payment-card {
+  
+    display: flex;
+   justify-content: space-between;
+   align-items: center;
+    padding: 4px 0 4px 0;
+    background-color: rgb(228, 228, 228);
+    margin: 10px 0;
+    height: 110px;
+    display: grid;
+    grid-template-columns: repeat(4 , 200px);
+    
+    justify-items: center;
+}
+.action-buttons{
+    display: flex;
+    justify-content: flex-end;
+    .cancel-button-div{
+    .cancel-button{
+        background-color: rgb(165, 165, 165);
+        color: black;
+        font-weight: bolder;
+        box-shadow: rgb(100, 100, 100) 1px 1px 1px 1px;
+        margin-right: 8px;
+        &:hover{
+            background-color: rgba(49, 49, 49, 0.849);
+            color: white;
+           
+        }
+                }
+    }
+    .stripe-payment-button{
+        background-color: rgb(165, 165, 165);
+        color: black;
+        font-weight: bolder;
+        box-shadow: rgb(100, 100, 100) 1px 1px 2px 2px;
+        margin-right: 8px;
+        &:hover{
+            background-color: rgba(49, 49, 49, 0.849);
+            color: white;
+           
+        }
+    }
+}

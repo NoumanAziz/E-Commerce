@@ -6,10 +6,10 @@ import { facebookSignin } from '../../../src/firebase/firebaseUtil';
 import { Button } from 'semantic-ui-react'
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import {auth , uiConfig} from '../../../src/firebase/firebaseUtil'
-
+import ModalComponent from '../ModalComponent/ModalComponent'
 import './SignIn.scss';
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     state = {
         email : '',
         password : '',
@@ -90,10 +90,10 @@ formValidate = (name)=>{
     render() {
         return (
             <div className = 'signin'>
-                <h2 className = 'title'>I already have account</h2>
-                <span>Enter your Email and password to Sign in</span>
+                
+                <h3>Enter your Email and password to Sign in</h3>
 
-                <form onSubmit={this.handleSubmit} className= 'form'>
+                <form onSubmit={this.handleSubmit} className= 'form-input-signin'>
                     <FormInput 
                             name = 'email' 
                             type ='email' 
@@ -102,6 +102,7 @@ formValidate = (name)=>{
                             handleChange = {this.handleChange} 
                             label = 'Email'
                             onBlur = {()=>this.formValidate('email')}
+                            validate = {this.emailError}
                             />
                     {this.state.emailError ?
                         <div className = 'error'>{this.state.emailError}</div>
@@ -115,6 +116,7 @@ formValidate = (name)=>{
                             handleChange = {this.handleChange}
                             label = 'Password'
                             onBlur = {()=>this.formValidate('password')}
+                            validate = {this.state.passwordError}
                             />
                     {this.state.passwordError ?
                         <div className = 'error'>{this.state.passwordError}</div>
@@ -124,7 +126,7 @@ formValidate = (name)=>{
                        <div  className = 'signin-button'>
                      <CustomButton  type = 'submit' >Sign In</CustomButton>
                      </div>
-                     --------or---------
+                     -----or login with-----
                         <div className = 'google-fb'>
                             {/* <CustomButton type = 'button' onClick = {googleSignin}   isGoogleSignin = 'true'  >
                                             {' '}Google{' '} 
@@ -147,3 +149,5 @@ formValidate = (name)=>{
         )
     }
 }
+
+export default ModalComponent(SignIn);

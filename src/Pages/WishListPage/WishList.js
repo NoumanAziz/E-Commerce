@@ -12,7 +12,9 @@ const WishList = ({wishlistItems , history}) => {
     return (
     
         <div className = 'wishlist'>
-            <h2>Wishlist</h2>
+            <div className = 'wishlist-title'>
+                <h2>Wishlist</h2>
+            </div>
       
             <div className = 'wishlist-items'>
                 {wishlistItems.map(item => <WishlistCard key = {item.id} item = {item} 

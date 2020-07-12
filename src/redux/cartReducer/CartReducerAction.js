@@ -57,3 +57,30 @@ export const increaseQuantity = (id)=>(
         payload : id
     }
 )
+
+
+export const checkAll = () => (
+    {
+        type : CartReducerActionType.CHECK_ALL 
+    }
+)
+
+export const uncheckAll = () => (
+    {
+        type : CartReducerActionType.UNCHECK_ALL
+    }
+)
+
+export const checkItem = (id) => (
+    {
+        type : CartReducerActionType.CHECK_ITEM,
+        payload : id
+    }
+)
+
+export const uncheckItem = (id) => (
+    {
+        type : CartReducerActionType.UNCHECK_ITEM,
+        payload : id
+    }
+)

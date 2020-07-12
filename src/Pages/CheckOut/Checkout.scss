@@ -50,6 +50,14 @@
         margin: 0;
         padding: 0;
     }
+    .select-unselect{
+        display: flex;
+        justify-content: center;
+        & input{
+            cursor: pointer;
+            margin: auto 7px;
+        }
+    }
 }
 }
 .cartItems{

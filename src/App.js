@@ -60,6 +60,8 @@ this.unsubscribeFromAuth();
         <Route  path="/shop" component={ShopPage}/>
         <Route exact path="/procedpayment" component={ProceedPayment}/>
         <Route exact path="/checkout" component={Checkout}/>
+        
+
         <Route exact path="/wishlist" component={WishList}/>
         <Route exact path="/signin"  render={()=>
           this.props.currentUser ?(

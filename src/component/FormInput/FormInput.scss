@@ -1,5 +1,5 @@
 $sub-color: grey;
-$main-color: black;
+$main-color: rgb(58, 57, 57);
 
 @mixin shrinkLabel {
   top: -14px;
@@ -14,7 +14,7 @@ $main-color: black;
 
   .form-input {
     background: none;
-    background-color: white;
+    background-color: rgb(231, 231, 231);
     color: $sub-color;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
@@ -27,12 +27,20 @@ $main-color: black;
 
     &:focus {
       outline: none;
-      
+      background-color: rgb(211, 210, 210);
+      border-top-right-radius: 3px;
+      border-top-left-radius: 4px;
     }
 
     &:focus ~ .form-input-label {
       @include shrinkLabel();
     }
+  }
+
+  .new-error-class{
+   
+      border-bottom:1px solid red;
+  
   }
 
   input[type='password'] {

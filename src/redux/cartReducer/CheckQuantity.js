@@ -7,9 +7,9 @@ export const CheckQuantity = (existingItemsArray , itemToBeAdded ,qty)=>{
     if (existing){
         return existingItemsArray.map (arryitem => (
             arryitem.id === itemToBeAdded.id ? 
-            {...arryitem , quantity : arryitem.quantity+1}
+            {...arryitem , quantity : arryitem.quantity+1 , isChecked:false}
             : arryitem
             ))
     }
-    return [...existingItemsArray , {...itemToBeAdded , quantity :qty }]
+    return [...existingItemsArray , {...itemToBeAdded , quantity :qty , isChecked:false}]
 }
